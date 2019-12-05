@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using InterviewProject.Domain.Interfaces;
 using InterviewProject.Domain.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -22,9 +23,9 @@ namespace InterviewProject.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<WeatherForecast> Get()
+        public async Task<IEnumerable<WeatherForecast>> Get()
         {
-            return weatherProvider.Get();
+            return await weatherProvider.Get();
         }
     }
 }

@@ -1,10 +1,10 @@
 using Xunit;
 using FluentAssertions;
-using InterviewProject.Interfaces;
 using System.Threading.Tasks;
 using System.Net.Http;
 using System;
 using InterviewProject.Domain.Exceptions;
+using InterviewProject.Domain.Interfaces;
 
 namespace InterviewProject.Web.Tests
 {

@@ -1,7 +1,7 @@
 using System.Net.Http;
 using System.Threading.Tasks;
 using InterviewProject.Domain.Exceptions;
-using InterviewProject.Interfaces;
+using InterviewProject.Domain.Interfaces;
 using Newtonsoft.Json;
 
 namespace InterviewProject

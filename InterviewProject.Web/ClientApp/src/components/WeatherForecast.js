@@ -5,8 +5,18 @@ import './WeatherForecast.css'
 
 export function WeatherForcast(props) {
     const [city, setCity] = useState("");
+    const [error, setError] = useState(null);
     const [forecasts, setForecasts] = useState(null);
-    const getForecast = async () => setForecasts(await props.forecastProvider(city));
+    const getForecast = async () => {
+        try {
+            const forecasts = await props.forecastProvider(city);
+            setError(null)
+            setForecasts(forecasts);
+        }
+        catch (error) {
+            setError(`Unable to load forecast for "${city}".`);
+        }
+    }
 
     return <div>
         <form onSubmit={getForecast}>
@@ -22,7 +32,7 @@ export function WeatherForcast(props) {
             </div>
         </form>
 
-        {forecasts && <table className='table table-striped' aria-labelledby="tabelLabel">
+        {error || (forecasts && <table className='table table-striped' aria-labelledby="tabelLabel">
             <thead>
                 <tr>
                     <th>Date</th>
@@ -41,6 +51,6 @@ export function WeatherForcast(props) {
                     </tr>
                 )}
             </tbody>
-        </table>}
+        </table>)}
     </div>
 }

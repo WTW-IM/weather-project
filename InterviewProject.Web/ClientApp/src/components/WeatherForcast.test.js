@@ -24,3 +24,15 @@ test("displays the forecast based on the user search", async () => {
     expect(getByText(firstDayForecast.temperatureC.toString())).toBeDefined();
     expect(getByText(firstDayForecast.temperatureF.toString())).toBeDefined();
 });
+
+test("displays the an error when the search fails", async () => {
+    const forecastProvider = () => Promise.reject();
+    const { getByText, getByPlaceholderText } = render(<WeatherForcast forecastProvider={forecastProvider} />);
+
+    fireEvent.change(getByPlaceholderText("City"), { target: { value: "Honolulu" } });
+
+    getByText("Get Forecast").click();
+    await waitForDomChange();
+
+    expect(getByText("Unable to load forecast for \"Honolulu\".")).toBeDefined();
+});

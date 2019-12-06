@@ -1,3 +1,4 @@
+using System.Net.Http;
 using InterviewProject.Domain.Interfaces;
 using InterviewProject.Weather;
 using Microsoft.AspNetCore.Builder;
@@ -23,7 +24,8 @@ namespace InterviewProject
         {
             services.AddControllersWithViews();
 
-            services.AddScoped<IWeatherProvider, StaticWeatherProvider>();
+            services.AddSingleton<IHttp>(sp => new Http(underlyingClient: new HttpClient()));
+            services.AddScoped<IWeatherProvider, MetaWeatherWeatherProvider>();
 
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>

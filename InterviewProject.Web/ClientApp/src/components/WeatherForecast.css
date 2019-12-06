@@ -1,0 +1,11 @@
+.forecast-search-button {
+    justify-content: flex-end;
+    white-space: nowrap;
+    margin-left: 5px;
+}
+
+.forecast-search { 
+    display: flex; 
+    justify-content: space-between;
+    margin-bottom: 5px;
+}

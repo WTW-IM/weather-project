@@ -6,7 +6,7 @@ using System;
 using InterviewProject.Domain.Exceptions;
 using InterviewProject.Domain.Interfaces;
 
-namespace InterviewProject.Web.Tests
+namespace InterviewProject.Web.Tests.Web.Integration
 {
     public class TestResponse
     {

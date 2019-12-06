@@ -14,7 +14,7 @@ namespace InterviewProject.Weather
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };
 
-        public Task<IEnumerable<WeatherForecast>> Get()
+        public Task<IEnumerable<WeatherForecast>> GetForecastFor(string location)
         {
             var rng = new Random();
             IEnumerable<WeatherForecast> result = Enumerable.Range(1, 5).Select(index => new WeatherForecast

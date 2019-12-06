@@ -6,6 +6,6 @@ namespace InterviewProject.Domain.Interfaces
 {
     public interface IWeatherProvider
     {
-        Task<IEnumerable<WeatherForecast>> Get();
+        Task<IEnumerable<WeatherForecast>> GetForecastFor(string location);
     }
 }

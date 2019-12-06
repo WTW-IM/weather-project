@@ -23,9 +23,9 @@ namespace InterviewProject.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<WeatherForecast>> Get()
+        public async Task<IEnumerable<WeatherForecast>> GetForecastFor(string location)
         {
-            return await weatherProvider.Get();
+            return await weatherProvider.GetForecastFor(location);
         }
     }
 }

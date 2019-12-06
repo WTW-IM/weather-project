@@ -22,7 +22,9 @@ namespace InterviewProject
             if (!response.IsSuccessStatusCode)
                 throw new NetworkException(response.ReasonPhrase);
 
-            return JsonConvert.DeserializeObject<T>(await response.Content.ReadAsStringAsync());
+            string value = await response.Content.ReadAsStringAsync();
+            
+            return JsonConvert.DeserializeObject<T>(value);
         }
     }
 }

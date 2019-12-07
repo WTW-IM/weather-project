@@ -3,20 +3,25 @@ import { TextInput } from './TextInput'
 import { Button } from './Button'
 import './WeatherForecast.css'
 
+const noOp = () => { };
+
 export function WeatherForcast(props) {
     const [city, setCity] = useState("");
     const [error, setError] = useState(null);
     const [forecasts, setForecasts] = useState(null);
-    const getForecast = async () => {
-        try {
-            const forecasts = await props.forecastProvider(city);
-            setError(null)
-            setForecasts(forecasts);
+    const hasCity = !!city.trim();
+    const getForecast = hasCity
+        ? async () => {
+            try {
+                const forecasts = await props.forecastProvider(city);
+                setError(null)
+                setForecasts(forecasts);
+            }
+            catch (error) {
+                setError(`Unable to load forecast for "${city}".`);
+            }
         }
-        catch (error) {
-            setError(`Unable to load forecast for "${city}".`);
-        }
-    }
+        : noOp;
 
     return <div>
         <form onSubmit={getForecast}>
@@ -26,6 +31,7 @@ export function WeatherForcast(props) {
                     type="submit"
                     onClick={getForecast}
                     className="btn btn-primary forecast-search-button"
+                    disabled={!hasCity}
                     runningDisplay={<i>Loading...</i>}>
                     Get Forecast
                 </Button>

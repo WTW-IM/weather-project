@@ -36,3 +36,18 @@ test("displays the an error when the search fails", async () => {
 
     expect(getByText("Unable to load forecast for \"Honolulu\".")).toBeDefined();
 });
+
+test("does not search when city is blank (and the search button is therefor disabled)", async () => {
+    let forecastWasRequested = false;
+    const forecastProvider = () => {
+        forecastWasRequested = true;
+        return Promise.resolve([]);
+    };
+    const { getByText, getByPlaceholderText } = render(<WeatherForcast forecastProvider={forecastProvider} />);
+
+    fireEvent.change(getByPlaceholderText("City"), { target: { value: "  " } });
+
+    getByText("Get Forecast").click();
+
+    expect(forecastWasRequested).toBe(false);
+});

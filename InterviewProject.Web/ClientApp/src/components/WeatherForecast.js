@@ -24,7 +24,7 @@ export function WeatherForcast(props) {
         : noOp;
 
     return <div>
-        <form onSubmit={getForecast}>
+        <form>
             <div className="forecast-search">
                 <TextInput autofocus placeholder="City" value={city} onChange={setCity} />
                 <Button

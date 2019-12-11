@@ -25,7 +25,7 @@ test("displays the forecast based on the user search", async () => {
     expect(getByText(firstDayForecast.temperatureF.toString())).toBeDefined();
 });
 
-test("displays the an error when the search fails", async () => {
+test("displays an error when the search fails", async () => {
     const forecastProvider = () => Promise.reject();
     const { getByText, getByPlaceholderText } = render(<WeatherForcast forecastProvider={forecastProvider} />);
 

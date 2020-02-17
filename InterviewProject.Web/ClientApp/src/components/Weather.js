@@ -113,16 +113,16 @@ export function Weather(props) {
             onChange={async (event, value) => {
               saveQuery(value);
               saveLocations([]);
-              saveForecasts([]);
+              saveForecasts([]);              
               if (debouncedSearch && debouncedSearch.length > 1) {
-                const items = await WeatherApiInstance.locationSearch(value);
+                const items = await WeatherApiInstance.locationSearch(value);                
                 if (items) {
                   saveLocations(items);
                 }
               }
             }}
             renderMenu={children => <div className="menu">{children}</div>}
-            renderItem={(item, isHighlighted) => {
+            renderItem={(item, isHighlighted) => {              
               return (
                 <div
                   style={{ background: isHighlighted ? "lightgray" : "white" }}

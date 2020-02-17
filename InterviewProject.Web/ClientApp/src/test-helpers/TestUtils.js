@@ -1,12 +1,15 @@
-import { act } from 'react-dom/test-utils';
+import React from 'react';
+import Enzyme from "enzyme";
+import Adapter from "enzyme-adapter-react-16";
+Enzyme.configure({ adapter: new Adapter() });
 
-//work around for enzyme issue:
-//https://github.com/airbnb/enzyme/issues/2073
-export const waitForComponentToPaint = async (wrapper) => {
-  act(async () => {
-    await new Promise(resolve => setTimeout(resolve, 0));
-    wrapper.update();
-  });
+const TestHook = ({ callback }) => {
+  callback();
+  return null;
+};
+
+export const testHook = (callback) => {
+    Enzyme.mount(<TestHook callback={callback} />);
 };
 
 //work around for fontAwesome snapshot issue

@@ -66,7 +66,7 @@ export const useAxiosLoader = () => {
       axiosInstance.interceptors.request.eject(resInterceptor);
     };
   }, [interceptors, user]);
-
+  
   return counter > 0;
 };
 

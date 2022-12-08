@@ -14,7 +14,7 @@ This project in its current state is a slightly modified version of the output f
 
 - Modify the project to allow the user to search for a location.
 - Display a five day forecast for that location.  
-- Use the [Metaweather API](https://www.metaweather.com/api/) which is free and well documented.  
+- Use the [AccuWeather API](https://developer.accuweather.com/apis) which is free (up to 50 API calls per day) and well documented.  
 
 ## What we're looking for
 

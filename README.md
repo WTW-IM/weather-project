@@ -3,18 +3,20 @@ Welcome to a fun interview project.  Please do not take more than a few hours to
 ## Getting Started
 
 1. Clone this repo
-1. Install [.NET Core 3.0 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.0)
+1. Install [.NET 8.0 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
 1. Install [node.js](https://nodejs.org/en/download/)
 1. Install [Visual Studio](https://visualstudio.microsoft.com/vs/community/) or [Visual Studio Code](https://code.visualstudio.com/download)
 1. Run (npm takes a few minutes on first launch, so be patient)
 
 ## Your Task
 
-This project in its current state is a slightly modified version of the output from `dotnet new react` using ASP.NET Core 3.0.  Right now, static weather data is displayed in a table.
+This project in its current state is a slightly modified and updated version of the output from `dotnet new react` using ASP.NET Core 3.0.  Right now, static weather data is displayed in a table.
 
 - Modify the project to allow the user to search for a location.
-- Display a five day forecast for that location.  
-- Use the [AccuWeather API](https://developer.accuweather.com/apis) which is free (up to 50 API calls per day) and well documented.  
+- Display a five-day forecast for that location.  
+- Use one of the following APIs:
+  - [AccuWeather API](https://developer.accuweather.com/apis) (free up to 50 API calls per day)
+  - [OpenWeather API](https://openweathermap.org/forecast5) (free up to 60 API calls per minute)
 
 ## What we're looking for
 

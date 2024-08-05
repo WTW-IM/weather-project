@@ -91,6 +91,12 @@ $tf/
 # Guidance Automation Toolkit
 *.gpState
 
+## JetBrains tools
+#################
+# JetBrains Rider
+.idea/
+*.sln.iml
+
 # ReSharper is a .NET coding add-in
 _ReSharper*/
 *.[Rr]e[Ss]harper
